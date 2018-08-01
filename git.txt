@@ -1,0 +1,3 @@
+git remote 查看远程库的信息
+
+git remote –v 查看远程库的详细信息

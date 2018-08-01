@@ -1,0 +1,164 @@
+
+mkdir 文件夹名称	创建文件夹
+
+date	显示当前日期
+cal		显示当前日历
+cal 月份 年份	显示输入月份日历
+
+
+ls		ls命令是列出目录内容ls命令是列出目录内容(List Directory Contents)的意思。运行它就是列出文件夹里的内容，可能是文件也可能是文件夹。
+ls -l   “ls -l”命令以详情模式(long listing fashion)列出文件夹的内容。(同ll一样)
+ls -a	"ls -a"命令会列出文件夹里的所有内容，包括以"."开头的隐藏文件。
+ls -lh	也会显示文件大小不过不是以默认单位byte来显示而是以合适的单位显示根据实际情况调整  human-readable 人性化阅读
+ll		不是命令，是ls -l的别名
+ll		列表显示文件信息，文件大小以默认单位byte来显示
+ll -lh	也会显示文件大小不过不是以默认单位byte来显示而是以合适的单位显示根据实际情况调整  human-readable 人性化阅读
+ll -h	也会显示文件大小不过不是以默认单位byte来显示而是以合适的单位显示根据实际情况调整  human-readable 人性化阅读
+
+注意：在Linux中，文件以“.”开头的就是隐藏文件，并且每个文件，文件夹，设备或者命令都是以文件对待。ls -l 命令输出：
+
+d (代表了是目录).
+rwxr-xr-x 是文件或者目录对所属用户，同一组用户和其它用户的权限。
+上面例子中第一个ravisaive 代表了文件文件属于用户ravisaive
+上面例子中的第二个ravisaive代表了文件文件属于用户组ravisaive
+4096 代表了文件大小为4096字节.
+May 8 01:06 代表了文件最后一次修改的日期和时间.
+最后面的就是文件/文件夹的名字
+
+
+-r 就是向下递归，不管有多少级目录，一并删除
+-f 就是直接强行删除，不作任何提示的意思
+
+rm 文件名 	删除文件（会弹出确认删除信息，输入yes删除）
+rmdir 文件夹名		删除文件夹(空文件夹)
+
+删除文件夹实例：
+rm -rf /var/log/httpd/access
+将会删除/var/log/httpd/access目录以及其下所有文件、文件夹
+
+删除文件使用实例：
+rm -f /var/log/httpd/access.log
+将会强制删除/var/log/httpd/access.log这个文件
+
+ctrl + c  终止操作 比如测试一个请求中间想终止该操作
+
+
+pwd		  当前目录路径	print working directory
+pwd -P    当前目录路径
+
+
+vi命令使用举例
+例一：创建（修改）文件a.txt。
+vi a.txt
+Hello everyone!
+:wq //在退出时，直接输入:wq会发现退不出去，退出方法是：编辑完成后按ESC，然后输入:q!就是退出;还有:wq是保存后退出，加感叹号是表示强制
+
+cat abc.txt 查看文件内容
+tail -n 1000 abc.txt	显示最后1000行 
+tail -n +1000 abc.txt	从1000行开始显示，显示1000行以后的
+head -n 1000 abc.txt	显示前面1000行
+
+mv abc.txt abcd.txt		重命名文件或文件夹
+mv ab*.txt abcd  		将当前目录下以ab开头的txt文件移动到abcd中
+mv ab*.txt ..	  		将当前目录下以ab开头的txt文件移动到上级目录中
+cp ab*.txt abcd  		将当前目录下以ab开头的txt文件复制到abc
+
+
+find -name 'abc*' 		查找以abc开头的文件 
+find . -name 'abc*' 	查找i当前目录以abc开头的文件 
+
+
+
+关机 (系统的关机、重启以及登出 ) 
+shutdown -h now 关闭系统(1) 
+init 0 关闭系统(2) 
+telinit 0 关闭系统(3) 
+shutdown -h hours:minutes & 按预定时间关闭系统 
+shutdown -c 取消按预定时间关闭系统 
+shutdown -r now 重启(1) 
+reboot 重启(2) 
+logout 注销 
+top -c 查看cpu使用详情
+
+ 
+
+压缩与解压
+.tar
+压缩：tar cvf FileName.tar FileName.后缀名/文件夹
+解压：tar xvf FileName.tar
+tar 是unix/linux下的打包器。
+-cvf可以看做-c -v -f，-xvf则是-x -v -f。
+其中-c/-x分别表示create/extract，即打包/解包。
+-v 是verbose，表示显示打包/解包的详细过程。
+-f 表示file，表示打包输出/解包输入文件，后面跟"-"表示使用“标准输入/输出”（stdin/stdout)作为输出/输入文件。
+两个tar命令之间的"|"表示“重定向”，即第一个命令的stdout（也就是打包的输出）作为第二个命令的stdin（也就是解包的输入）。
+这个命令的最终结果是，将/home目录（包括其下的各级子目录）（通过打包到stdout=>再解包stdin）复制到“当前目录”。
+
+shift + pgup/pgdown  向上或向下翻页
+
+clear 	清除所有命令行
+
+
+
+linux中快速清空文件内容
+
+$ : > filename 
+$ > filename 
+$ echo "" > filename 
+$ echo > filename 
+$ cat /dev/null > filename
+
+
+sudo -i		切换root用户 
+exit		退出root用户 
+
+
+cpu信息
+vmstat 2      2为秒钟更新一次
+I try to explain  these:
+us: is meaning of "user CPU time"
+sy: is meaning of "system CPU time"
+ni: is meaning of" nice CPU time"
+id: is meaning of "idle"
+wa: is meaning of "iowait" 
+hi：is meaning of "hardware irq"
+si : is meaning of "software irq"
+st : is meaning of "steal time"
+
+中文翻译为：
+
+us 用户空间占用CPU百分比
+sy 内核空间占用CPU百分比
+ni 用户进程空间内改变过优先级的进程占用CPU百分比
+id 空闲CPU百分比
+wa 等待输入输出的CPU时间百分比
+hi 硬件中断
+si 软件中断 
+st: 实时
+
+
+linux下查看机器是cpu是几核的
+
+
+几个cpu
+
+more /proc/cpuinfo |grep "physical id"|uniq|wc -l
+
+每个cpu是几核（假设cpu配置相同）
+
+more /proc/cpuinfo |grep "physical id"|grep "0"|wc -l
+
+cat /proc/cpuinfo | grep processor
+
+1. 查看物理CPU的个数
+#cat /proc/cpuinfo |grep "physical id"|sort |uniq|wc -l
+
+2. 查看逻辑CPU的个数
+#cat /proc/cpuinfo |grep "processor"|wc -l
+
+3. 查看CPU是几核
+#cat /proc/cpuinfo |grep "cores"|uniq
+
+4. 查看CPU的主频
+#cat /proc/cpuinfo |grep MHz|uniq
+ 
