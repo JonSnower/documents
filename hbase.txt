@@ -1,0 +1,14 @@
+显示所有表
+list
+
+扫描表
+scan '表名'
+
+
+
+使用get命令获取一行数据。它的语法如下：
+get ’<table name>’,’row1’   // row1为rowkey
+get 'emp' , '1'
+
+查找列族下下某列的数据
+get ’<table name>’,’row1’,'columnFamilyName:cloumnName'
