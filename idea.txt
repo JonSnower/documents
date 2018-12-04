@@ -1,0 +1,5 @@
+ctrl + f12  查看当前类的所有方法
+ctrl + shift + enter  打出if后自动补全
+ctrl + e  最近打开的文件列表
+ctrl + f4 关闭当前标签面
+alt + 向左/向右箭头  快速切换当前标签页

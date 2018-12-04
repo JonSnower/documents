@@ -109,6 +109,7 @@ $ echo > filename
 $ cat /dev/null > filename
 
 
+su 			切换root用户 
 sudo -i		切换root用户 
 exit		退出root用户 
 
@@ -155,10 +156,17 @@ cat /proc/cpuinfo | grep processor
 
 2. 查看逻辑CPU的个数
 #cat /proc/cpuinfo |grep "processor"|wc -l
-
+	
 3. 查看CPU是几核
 #cat /proc/cpuinfo |grep "cores"|uniq
 
 4. 查看CPU的主频
 #cat /proc/cpuinfo |grep MHz|uniq
+
+
+
+
+1、lsof -i:端口号
+2、netstat -tunlp|grep 端口号
+都可以查看指定端口被哪个进程占用的情况
  
